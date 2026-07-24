@@ -15,26 +15,33 @@ LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars
 bool select_button_state = 0, up_button_state = 0, down_button_state = 0;
 bool select_button_delay = 0, up_button_delay = 0, down_button_delay = 0;
 unsigned long last_debounce_time;
-unsigned int DEBOUNCE_TIME = 100;
 
+unsigned int DEBOUNCE_TIME = 100;
 
 // ----------------- VARIABLES ---------------------------
 
 int LOCK_TIME_INTERVAL = 15; // seconds
 
 int pos = 0;    // variable to store the servo position
+
+// timing
 unsigned long now = 0;
 unsigned long last_print = 0;
 
-volatile int lock_time = 5; // seconds
-unsigned long lock_time_ms;
+// timer
+unsigned volatile int lock_time = 5; // seconds
 unsigned long lock_time_start;
+unsigned long time_left;
+unsigned long elapsed;
+
+unsigned int time_disp_s, time_disp_mins;
 
 bool timer_done = false;
 
 // ---------- FUNCTION DECLARATIONS -------
 bool servo_lock(int target_pos);
 bool rising_edge_detect(bool button_state, bool carry_state);
+void reset_all_timer_vars();
 
 // ---------------- FSM SETUP ----------------
 enum FSM_States {
@@ -59,7 +66,10 @@ void setup() {
   // LCD
   lcd.init();      
   lcd.backlight();
-  lcd.cursor();              
+  lcd.cursor();   
+  
+  lcd.setCursor(2, 0);
+  lcd.print("hi it's me!");
 }
 
 // --------------- LOOP --------------------
@@ -71,10 +81,16 @@ void loop() {
     Serial.print(state);
     Serial.print("| Servo Position: ");
     Serial.print(pos);
-    Serial.print("| Start time: ");
-    Serial.print(lock_time_start);
+    //Serial.print("| Start time: ");
+    //Serial.print(lock_time_start);
     Serial.print("| Lock Time: " );
     Serial.print(lock_time);
+    Serial.print("| seconds_left: " );
+    Serial.print(time_left);
+    Serial.print("| " );
+    Serial.print(time_disp_mins);
+    Serial.print(" : " );
+    Serial.print(time_disp_s);
     Serial.println();
 
     last_print = millis();
@@ -102,13 +118,12 @@ void loop() {
   }
 
   switch (state){
-    case IDLE:
+    case IDLE: // TODO: add LCD screen update
       if (servo_lock(30)){ // wait for it to finish unlocking
 
         // whenever SELECT_BUTTON is pressed, lock
         if (select_button_state){
-          lock_time_ms = lock_time * 1000;
-          lock_time_start = millis();
+          lock_time_start = millis() / 1000;
           select_button_state = false;
           state = LOCKED;
         }
@@ -117,24 +132,52 @@ void loop() {
         if (down_button_state) {
           lock_time = (lock_time < LOCK_TIME_INTERVAL)? LOCK_TIME_INTERVAL : lock_time - LOCK_TIME_INTERVAL; // no negative time lmao
           down_button_state = false;
-          //delay(200);
         }
 
         if (up_button_state){
           lock_time = lock_time + LOCK_TIME_INTERVAL;
           up_button_state = false;
-          //delay(200);
         }
       }
       break;
       
     case LOCKED:
       if (servo_lock(150)){ // wait for it to finish locking
-          if (now - lock_time_start >= lock_time_ms){
-          state = IDLE;
+        elapsed = (now / 1000) - lock_time_start; // using "elapsed" to avoid underflow
+
+        unsigned long old_time_left = time_left;
+        time_left = lock_time - elapsed;
+
+        // re-calculating timer things
+        if (elapsed >= lock_time){ // timer is finished
+            reset_all_timer_vars();
+            state = IDLE;
+        } else {
+            time_disp_mins = time_left / 60;
+            time_disp_s = time_left % 60;
         }
-      }
-      break;
+
+        // LCD updates only when time changes
+        if (old_time_left != time_left){
+          lcd.setCursor(2,0);
+          lcd.print("              ");  // clear line
+          lcd.setCursor(2,0);
+
+          //update LCD screen
+          // TODO: add printf
+          Serial.println("updating LCD");
+
+          lcd.setCursor(2,0);
+          lcd.print(time_disp_mins);
+          lcd.print(":");
+          lcd.print(time_disp_s);
+        }
+  
+    }
+    break;
+  
+    // LCD update
+   
   }
 }
 
@@ -152,27 +195,11 @@ bool servo_lock(int target_pos){
   return false;
 }
 
-/*
-
-void setup()
-{
-  
-  // Print a message to the LCD.
-  
-
-  lcd.setCursor(2,0);
-  lcd.print("Hello, world!");
-
-  lcd.setCursor(2,1);
-  lcd.print("It's Scarlett!");
-
-  lcd.setCursor(0,2);
-  
+void reset_all_timer_vars(){
+  lock_time = 0;
+  lock_time_start = 0;
+  time_left = 0;
+  time_disp_s = 0;
+  time_disp_mins = 0;
+  elapsed = 0;
 }
-
-
-void loop()
-{
-}
-
-*/
