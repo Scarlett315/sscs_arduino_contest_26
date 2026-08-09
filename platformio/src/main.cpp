@@ -78,6 +78,13 @@ int vibration_ct = 0;
 bool vibration_detected = false; // final result
 unsigned long stabilization_start = 0;
 
+//pattern detect
+const int PATTERN_LENGTH = 4;
+bool past_vib = false;
+bool pattern_history[PATTERN_LENGTH] = {0, 0, 0, 0};
+bool pattern_true[PATTERN_LENGTH] = {1, 0, 1, 0};
+
+bool pattern_detected = false;
 
 // ---------- FUNCTION DECLARATIONS -------
 bool servo_lock(int target_pos);
@@ -89,6 +96,7 @@ void calibrate_IMU();
 bool vibration_detect();
 void setup_IMU();
 void reset_all_vibration_vars();
+bool vibration_pattern_detect();
 
 // ---------------- FSM SETUP ----------------
 enum FSM_States {
@@ -159,8 +167,11 @@ void loop() {
     Serial.print(time_disp_mins);
     Serial.print(" : " );
     Serial.print(time_disp_s);
+
+
     Serial.print("| Reed Switch" );
     Serial.print(reed_sw_state);
+        /*
     Serial.print("| Vibration: " );
     Serial.print(vibration_detected);
     Serial.print("| V_en: " );
@@ -169,8 +180,10 @@ void loop() {
     Serial.print(RMS);
     Serial.print("| vibration ct " );
     Serial.print(vibration_ct);
-    //Serial.print("history " );
-    //Serial.print(history);
+    */
+
+    Serial.print("| pattern: " );
+    Serial.print(pattern_detected);
     Serial.println();
 
     last_print = now;
@@ -201,6 +214,9 @@ void loop() {
   if ( (now - last_IMU_update) > 10 && vib_detect_enable){
     update_accels();
     vibration_detected = (vibration_detect());
+    pattern_detected = vibration_pattern_detect();
+    past_vib = vibration_detected;
+
   } else {
     reset_all_vibration_vars();
   }
@@ -270,9 +286,16 @@ void loop() {
         }
 
         // "phone call" vibration detection
-        if (vibration_detected){
+        if (pattern_detected){
           snprintf(lcd_buffer, sizeof(lcd_buffer), "WHITE TO RESUME");
           update_lcd = true;
+
+          // reset
+          for (int i = 0; i < PATTERN_LENGTH; i++) {
+            pattern_history[i] = false;
+          }
+          pattern_detected = false;
+
           state = PAUSE;
         }
       }
@@ -467,4 +490,25 @@ void reset_all_vibration_vars(){
   history_index = 0;
 
   vibration_detected = false;
+}
+
+// pattern detect
+bool vibration_pattern_detect(){
+  if (vibration_detected != past_vib){
+    //shift everything 1 to the left
+    memmove(&pattern_history[0], &pattern_history[1], sizeof(pattern_history) - sizeof(pattern_history[0]));
+
+    pattern_history[PATTERN_LENGTH - 1] = vibration_detected;
+
+    // comparison
+    for (int i = 0; i < PATTERN_LENGTH; i++) {
+      if (pattern_history[i] != pattern_true[i]) {
+        return false;
+      }
+    }
+
+    return true;
+  }
+
+  return false;
 }
