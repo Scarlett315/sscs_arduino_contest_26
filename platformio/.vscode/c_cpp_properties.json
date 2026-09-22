@@ -17,7 +17,7 @@
                 "/Users/scarlett/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                 "/Users/scarlett/Documents/PlatformIO/Projects/sscs_arduino_contest_26/platformio/.pio/libdeps/uno/Servo/src",
                 "/Users/scarlett/.platformio/packages/framework-arduino-avr/cores/arduino",
-                "/Users/scarlett/.platformio/packages/framework-arduino-avr/variants/standard",
+                "/Users/scarlett/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                 "/Users/scarlett/Documents/PlatformIO/Projects/sscs_arduino_contest_26/platformio/.pio/libdeps/uno/Adafruit GFX Library",
                 "/Users/scarlett/Documents/PlatformIO/Projects/sscs_arduino_contest_26/platformio/.pio/libdeps/uno/Adafruit SSD1306",
                 "/Users/scarlett/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -37,7 +37,7 @@
                     "/Users/scarlett/.platformio/packages/framework-arduino-avr/libraries/Wire/src",
                     "/Users/scarlett/Documents/PlatformIO/Projects/sscs_arduino_contest_26/platformio/.pio/libdeps/uno/Servo/src",
                     "/Users/scarlett/.platformio/packages/framework-arduino-avr/cores/arduino",
-                    "/Users/scarlett/.platformio/packages/framework-arduino-avr/variants/standard",
+                    "/Users/scarlett/.platformio/packages/framework-arduino-avr/variants/eightanaloginputs",
                     "/Users/scarlett/Documents/PlatformIO/Projects/sscs_arduino_contest_26/platformio/.pio/libdeps/uno/Adafruit GFX Library",
                     "/Users/scarlett/Documents/PlatformIO/Projects/sscs_arduino_contest_26/platformio/.pio/libdeps/uno/Adafruit SSD1306",
                     "/Users/scarlett/.platformio/packages/framework-arduino-avr/libraries/EEPROM/src",
@@ -47,8 +47,8 @@
                 ]
             },
             "defines": [
-                "PLATFORMIO=60119",
-                "ARDUINO_AVR_UNO",
+                "PLATFORMIO=60200",
+                "ARDUINO_AVR_NANO",
                 "F_CPU=16000000L",
                 "ARDUINO_ARCH_AVR",
                 "ARDUINO=10808",

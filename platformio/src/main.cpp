@@ -11,10 +11,10 @@ LiquidCrystal_I2C lcd(0x27,20,4);  // set the LCD address to 0x27 for a 16 chars
 Adafruit_MPU6050 mpu; // MPU6050
 
 #define SERVO_CONTROL_PIN 8
-#define SELECT_BUTTON 6
-#define UP_BUTTON 5
-#define DOWN_BUTTON 4 
-#define REED_SWITCH 3
+#define SELECT_BUTTON 3
+#define UP_BUTTON 4
+#define DOWN_BUTTON 5 
+#define REED_SWITCH 6
 
 // button intialization
 bool select_button_state = 0, up_button_state = 0, down_button_state = 0, reed_sw_state = 0;
@@ -28,14 +28,14 @@ unsigned int DEBOUNCE_TIME = 100;
 int pos = 0;  
 
 // selection
-unsigned int LOCK_TIME_INTERVAL = 900; // in seconds (15 mins)
+unsigned int LOCK_TIME_INTERVAL = 15; // in seconds (15 mins)
 
 // timing
 unsigned long now = 0;
 unsigned long last_print = 0;
 
 // timer
-unsigned volatile int lock_time_s = 900; // seconds
+unsigned volatile int lock_time_s = 15; // seconds
 unsigned long lock_time_start;
 unsigned long time_left;
 unsigned long elapsed;
