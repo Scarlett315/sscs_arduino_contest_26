@@ -26,16 +26,18 @@ unsigned int DEBOUNCE_TIME = 100;
 // ----------------- VARIABLES ---------------------------
 //servo
 int pos = 0;  
+int LOCKED_POS = 150;
+int UNLOCKED_POS = 30;
 
 // selection
-unsigned int LOCK_TIME_INTERVAL = 15; // in seconds (15 mins)
+unsigned int LOCK_TIME_INTERVAL = 900; // in seconds (15 mins)
 
 // timing
 unsigned long now = 0;
 unsigned long last_print = 0;
 
 // timer
-unsigned volatile int lock_time_s = 15; // seconds
+unsigned volatile int lock_time_s = 900; // seconds
 unsigned long lock_time_start;
 unsigned long time_left;
 unsigned long elapsed;
@@ -65,11 +67,11 @@ const int RMS_SAMPLES = 50;
 int rms_counter = 0; 
 
 // thresholds & sliding window :O
-const float THRESHOLD_HIGH = 0.40;
-const float THRESHOLD_LOW = 0.12;
+const float THRESHOLD_HIGH = 0.50;
+const float THRESHOLD_LOW = 0.40;
 
-const int WINDOW = 10;
-const int REQUIRED = 8;
+const int WINDOW = 30;
+const int REQUIRED = 24;
 
 bool history[WINDOW] = {0}; // sliding list of bools
 int history_index = 0;
@@ -78,13 +80,6 @@ int vibration_ct = 0;
 bool vibration_detected = false; // final result
 unsigned long stabilization_start = 0;
 
-//pattern detect
-const int PATTERN_LENGTH = 4;
-bool past_vib = false;
-bool pattern_history[PATTERN_LENGTH] = {0, 0, 0, 0};
-bool pattern_true[PATTERN_LENGTH] = {1, 0, 1, 0};
-
-bool pattern_detected = false;
 
 // ---------- FUNCTION DECLARATIONS -------
 bool servo_lock(int target_pos);
@@ -96,7 +91,6 @@ void calibrate_IMU();
 bool vibration_detect();
 void setup_IMU();
 void reset_all_vibration_vars();
-bool vibration_pattern_detect();
 
 // ---------------- FSM SETUP ----------------
 enum FSM_States {
@@ -167,11 +161,8 @@ void loop() {
     Serial.print(time_disp_mins);
     Serial.print(" : " );
     Serial.print(time_disp_s);
-
-
     Serial.print("| Reed Switch" );
     Serial.print(reed_sw_state);
-        /*
     Serial.print("| Vibration: " );
     Serial.print(vibration_detected);
     Serial.print("| V_en: " );
@@ -180,10 +171,8 @@ void loop() {
     Serial.print(RMS);
     Serial.print("| vibration ct " );
     Serial.print(vibration_ct);
-    */
-
-    Serial.print("| pattern: " );
-    Serial.print(pattern_detected);
+    //Serial.print("history " );
+    //Serial.print(history);
     Serial.println();
 
     last_print = now;
@@ -214,9 +203,6 @@ void loop() {
   if ( (now - last_IMU_update) > 10 && vib_detect_enable){
     update_accels();
     vibration_detected = (vibration_detect());
-    pattern_detected = vibration_pattern_detect();
-    past_vib = vibration_detected;
-
   } else {
     reset_all_vibration_vars();
   }
@@ -225,7 +211,7 @@ void loop() {
 
   switch (state){ 
     case IDLE: 
-      if (servo_lock(150)){ // wait for it to finish unlocking
+      if (servo_lock(UNLOCKED_POS)){ // wait for it to finish unlocking
 
         // whenever SELECT_BUTTON is pressed, lock
         if (select_button_state){
@@ -259,7 +245,7 @@ void loop() {
       break;
       
     case LOCKED:
-      if (servo_lock(30)){ // wait for it to finish locking
+      if (servo_lock(LOCKED_POS)){ // wait for it to finish locking
         unsigned long old_time_left = time_left;
         time_left = (sec_tick)? time_left - 1:time_left;
 
@@ -286,16 +272,9 @@ void loop() {
         }
 
         // "phone call" vibration detection
-        if (pattern_detected){
-          snprintf(lcd_buffer, sizeof(lcd_buffer), "WHITE TO RESUME");
+        if (vibration_detected){
+          snprintf(lcd_buffer, sizeof(lcd_buffer), "BLUE TO RESUME");
           update_lcd = true;
-
-          // reset
-          for (int i = 0; i < PATTERN_LENGTH; i++) {
-            pattern_history[i] = false;
-          }
-          pattern_detected = false;
-
           state = PAUSE;
         }
       }
@@ -303,11 +282,11 @@ void loop() {
       break;
 
     case TAMPER:
-        if (servo_lock(150)){ // servo should be unlocked so that you can put the lid back down
+        if (servo_lock(UNLOCKED_POS)){ // servo should be unlocked so that you can put the lid back down
             if (reed_sw_state){ // box is closed again, allow to resume
 
               delay(200); // a bit glitchy
-              snprintf(lcd_buffer, sizeof(lcd_buffer), "WHITE TO RESUME");
+              snprintf(lcd_buffer, sizeof(lcd_buffer), "BLUE TO RESUME");
               update_lcd = true;
               state = PAUSE;
             } else {
@@ -317,7 +296,7 @@ void loop() {
       break;
 
     case PAUSE:
-        if (servo_lock(150)){
+        if (servo_lock(UNLOCKED_POS)){
 
           if (reed_sw_state){
             if (select_button_state){ // go back to LOCKED once middle button is pressed
@@ -403,7 +382,7 @@ void calibrate_IMU(){
       sensors_event_t a, g, temp;
       mpu.getEvent(&a, &g, &temp);
 
-      z = a.acceleration.z;
+      z = a.acceleration.y;
       
       z_DRIFT_CORRECTION += z;
 
@@ -441,7 +420,7 @@ void update_accels(){
   sensors_event_t a, g, temp;
   mpu.getEvent(&a, &g, &temp);
 
-  a_z = a.acceleration.z - z_DRIFT_CORRECTION;
+  a_z = a.acceleration.y - z_DRIFT_CORRECTION;
 
   // high-pass filter (gets rid of *gravity* :>)
   z_baseline += HP_COEFF * (a_z - z_baseline);
@@ -490,25 +469,4 @@ void reset_all_vibration_vars(){
   history_index = 0;
 
   vibration_detected = false;
-}
-
-// pattern detect
-bool vibration_pattern_detect(){
-  if (vibration_detected != past_vib){
-    //shift everything 1 to the left
-    memmove(&pattern_history[0], &pattern_history[1], sizeof(pattern_history) - sizeof(pattern_history[0]));
-
-    pattern_history[PATTERN_LENGTH - 1] = vibration_detected;
-
-    // comparison
-    for (int i = 0; i < PATTERN_LENGTH; i++) {
-      if (pattern_history[i] != pattern_true[i]) {
-        return false;
-      }
-    }
-
-    return true;
-  }
-
-  return false;
 }
