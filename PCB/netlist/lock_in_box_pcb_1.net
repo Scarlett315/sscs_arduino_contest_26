@@ -1,0 +1,1352 @@
+(export
+	(version "E")
+	(design
+		(source "/Users/scarlett/Programming/SSCS Arduino Contest 2026/lock_in_box_pcb/lock_in_box_pcb.kicad_sch")
+		(date "2026-08-25T22:33:37")
+		(tool "Eeschema 10.0.4")
+		(sheet
+			(number "1")
+			(name "/")
+			(tstamps "/")
+			(title_block
+				(title)
+				(company)
+				(rev)
+				(date)
+				(source "lock_in_box_pcb.kicad_sch")
+				(comment
+					(number "1")
+					(value "")
+				)
+				(comment
+					(number "2")
+					(value "")
+				)
+				(comment
+					(number "3")
+					(value "")
+				)
+				(comment
+					(number "4")
+					(value "")
+				)
+				(comment
+					(number "5")
+					(value "")
+				)
+				(comment
+					(number "6")
+					(value "")
+				)
+				(comment
+					(number "7")
+					(value "")
+				)
+				(comment
+					(number "8")
+					(value "")
+				)
+				(comment
+					(number "9")
+					(value "")
+				)
+			)
+		)
+	)
+	(components
+		(comp
+			(ref "A2")
+			(value "Arduino_Nano_v3.x")
+			(footprint "Module:Arduino_Nano")
+			(datasheet "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf")
+			(description "Arduino Nano v3.x")
+			(fields
+				(field
+					(name "Footprint") "Module:Arduino_Nano")
+				(field
+					(name "Datasheet") "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf")
+				(field
+					(name "Description") "Arduino Nano v3.x")
+			)
+			(libsource
+				(lib "MCU_Module")
+				(part "Arduino_Nano_v3.x")
+				(description "Arduino Nano v2.x")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lock_in_box_pcb.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "Arduino nano microcontroller module USB")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Arduino*Nano*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "b6770d83-42ad-4c3a-a94f-4de06c168233")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "5")
+						)
+						(pin
+							(num "6")
+						)
+						(pin
+							(num "7")
+						)
+						(pin
+							(num "8")
+						)
+						(pin
+							(num "9")
+						)
+						(pin
+							(num "10")
+						)
+						(pin
+							(num "11")
+						)
+						(pin
+							(num "12")
+						)
+						(pin
+							(num "13")
+						)
+						(pin
+							(num "14")
+						)
+						(pin
+							(num "15")
+						)
+						(pin
+							(num "16")
+						)
+						(pin
+							(num "30")
+						)
+						(pin
+							(num "4")
+						)
+						(pin
+							(num "17")
+						)
+						(pin
+							(num "29")
+						)
+						(pin
+							(num "27")
+						)
+						(pin
+							(num "28")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "18")
+						)
+						(pin
+							(num "19")
+						)
+						(pin
+							(num "20")
+						)
+						(pin
+							(num "21")
+						)
+						(pin
+							(num "22")
+						)
+						(pin
+							(num "23")
+						)
+						(pin
+							(num "24")
+						)
+						(pin
+							(num "25")
+						)
+						(pin
+							(num "26")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "BUTTON1")
+			(value "Conn_01x04")
+			(footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+			(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector_Generic")
+				(part "Conn_01x04")
+				(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lock_in_box_pcb.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "158d5413-6858-4b01-94fa-f054c8339863")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "BUTTONGND1")
+			(value "Conn_01x04")
+			(footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+			(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector_Generic")
+				(part "Conn_01x04")
+				(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lock_in_box_pcb.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "66be6265-6d52-41d3-9f97-6579a5118634")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "GY521")
+			(value "Conn_01x04")
+			(footprint "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical")
+			(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Connector_PinSocket_2.54mm:PinSocket_1x04_P2.54mm_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector_Generic")
+				(part "Conn_01x04")
+				(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lock_in_box_pcb.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "connector")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "Connector*:*_1x??_*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "997b5c84-f437-43a1-9dad-1d9165a5a5b9")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "LCD1")
+			(value "Conn_01x04")
+			(footprint "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+			(description "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x04_P2.54mm_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Screw_Terminal_01x04")
+				(description "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lock_in_box_pcb.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "screw terminal")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "TerminalBlock*:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "c78f2580-1b3f-4fc0-b26d-a6e050550883")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+						(pin
+							(num "4")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "SERVO1")
+			(value "Conn_01x04")
+			(footprint "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
+			(description "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Screw_Terminal_01x03")
+				(description "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lock_in_box_pcb.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "screw terminal")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "TerminalBlock*:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "90187db8-63ad-496c-8488-8f258b6c2bac")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+						(pin
+							(num "3")
+						)
+					)
+				)
+			)
+		)
+		(comp
+			(ref "VIN1")
+			(value "Screw_Terminal_01x02")
+			(footprint "Connector_Phoenix_SPT:PhoenixContact_SPT_1.5_2-H-3.5_1x02_P3.5mm_Horizontal")
+			(description "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(fields
+				(field
+					(name "Footprint") "Connector_Phoenix_SPT:PhoenixContact_SPT_1.5_2-H-3.5_1x02_P3.5mm_Horizontal")
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(libsource
+				(lib "Connector")
+				(part "Screw_Terminal_01x02")
+				(description "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(property
+				(name "Sheetname")
+				(value "Root")
+			)
+			(property
+				(name "Sheetfile")
+				(value "lock_in_box_pcb.kicad_sch")
+			)
+			(property
+				(name "ki_keywords")
+				(value "screw terminal")
+			)
+			(property
+				(name "ki_fp_filters")
+				(value "TerminalBlock*:*")
+			)
+			(sheetpath
+				(names "/")
+				(tstamps "/")
+			)
+			(tstamps "26b1de36-c6a5-47b1-bb64-2b469d1f313a")
+			(units
+				(unit
+					(name "A")
+					(pins
+						(pin
+							(num "1")
+						)
+						(pin
+							(num "2")
+						)
+					)
+				)
+			)
+		)
+	)
+	(groups)
+	(variants)
+	(libparts
+		(libpart
+			(lib "Connector")
+			(part "Screw_Terminal_01x02")
+			(description "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(footprints
+				(fp "TerminalBlock*:*")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "Screw_Terminal_01x02")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic screw terminal, single row, 01x02, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "Pin_1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "Pin_2")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Connector")
+			(part "Screw_Terminal_01x03")
+			(description "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(footprints
+				(fp "TerminalBlock*:*")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "Screw_Terminal_01x03")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic screw terminal, single row, 01x03, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "Pin_1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "Pin_2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "Pin_3")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Connector")
+			(part "Screw_Terminal_01x04")
+			(description "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(footprints
+				(fp "TerminalBlock*:*")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "Screw_Terminal_01x04")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic screw terminal, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "Pin_1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "Pin_2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "Pin_3")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "Pin_4")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "Connector_Generic")
+			(part "Conn_01x04")
+			(description "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			(footprints
+				(fp "Connector*:*_1x??_*")
+			)
+			(fields
+				(field
+					(name "Reference") "J")
+				(field
+					(name "Value") "Conn_01x04")
+				(field
+					(name "Footprint")
+				)
+				(field
+					(name "Datasheet")
+				)
+				(field
+					(name "Description") "Generic connector, single row, 01x04, script generated (kicad-library-utils/schlib/autogen/connector/)")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "Pin_1")
+					(type "passive")
+				)
+				(pin
+					(num "2")
+					(name "Pin_2")
+					(type "passive")
+				)
+				(pin
+					(num "3")
+					(name "Pin_3")
+					(type "passive")
+				)
+				(pin
+					(num "4")
+					(name "Pin_4")
+					(type "passive")
+				)
+			)
+		)
+		(libpart
+			(lib "MCU_Module")
+			(part "Arduino_Nano_v3.x")
+			(description "Arduino Nano v3.x")
+			(docs "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf")
+			(footprints
+				(fp "Arduino*Nano*")
+			)
+			(fields
+				(field
+					(name "Reference") "A")
+				(field
+					(name "Value") "Arduino_Nano_v3.x")
+				(field
+					(name "Footprint") "Module:Arduino_Nano")
+				(field
+					(name "Datasheet") "http://www.mouser.com/pdfdocs/Gravitech_Arduino_Nano3_0.pdf")
+				(field
+					(name "Description") "Arduino Nano v3.x")
+			)
+			(pins
+				(pin
+					(num "1")
+					(name "D1/TX")
+					(type "bidirectional")
+				)
+				(pin
+					(num "2")
+					(name "D0/RX")
+					(type "bidirectional")
+				)
+				(pin
+					(num "3")
+					(name "~{RESET}")
+					(type "input")
+				)
+				(pin
+					(num "4")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "5")
+					(name "D2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "6")
+					(name "D3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "7")
+					(name "D4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "8")
+					(name "D5")
+					(type "bidirectional")
+				)
+				(pin
+					(num "9")
+					(name "D6")
+					(type "bidirectional")
+				)
+				(pin
+					(num "10")
+					(name "D7")
+					(type "bidirectional")
+				)
+				(pin
+					(num "11")
+					(name "D8")
+					(type "bidirectional")
+				)
+				(pin
+					(num "12")
+					(name "D9")
+					(type "bidirectional")
+				)
+				(pin
+					(num "13")
+					(name "D10")
+					(type "bidirectional")
+				)
+				(pin
+					(num "14")
+					(name "D11")
+					(type "bidirectional")
+				)
+				(pin
+					(num "15")
+					(name "D12")
+					(type "bidirectional")
+				)
+				(pin
+					(num "16")
+					(name "D13")
+					(type "bidirectional")
+				)
+				(pin
+					(num "17")
+					(name "3V3")
+					(type "power_out")
+				)
+				(pin
+					(num "18")
+					(name "AREF")
+					(type "input")
+				)
+				(pin
+					(num "19")
+					(name "A0")
+					(type "bidirectional")
+				)
+				(pin
+					(num "20")
+					(name "A1")
+					(type "bidirectional")
+				)
+				(pin
+					(num "21")
+					(name "A2")
+					(type "bidirectional")
+				)
+				(pin
+					(num "22")
+					(name "A3")
+					(type "bidirectional")
+				)
+				(pin
+					(num "23")
+					(name "A4")
+					(type "bidirectional")
+				)
+				(pin
+					(num "24")
+					(name "A5")
+					(type "bidirectional")
+				)
+				(pin
+					(num "25")
+					(name "A6")
+					(type "bidirectional")
+				)
+				(pin
+					(num "26")
+					(name "A7")
+					(type "bidirectional")
+				)
+				(pin
+					(num "27")
+					(name "+5V")
+					(type "power_out")
+				)
+				(pin
+					(num "28")
+					(name "~{RESET}")
+					(type "input")
+				)
+				(pin
+					(num "29")
+					(name "GND")
+					(type "power_in")
+				)
+				(pin
+					(num "30")
+					(name "VIN")
+					(type "power_in")
+				)
+			)
+		)
+	)
+	(libraries
+		(library
+			(logical "Connector")
+			(uri "${KICAD10_SYMBOL_DIR}/Connector.kicad_sym")
+		)
+		(library
+			(logical "Connector_Generic")
+			(uri "${KICAD10_SYMBOL_DIR}/Connector_Generic.kicad_sym")
+		)
+		(library
+			(logical "MCU_Module")
+			(uri "${KICAD10_SYMBOL_DIR}/MCU_Module.kicad_sym")
+		)
+	)
+	(nets
+		(net
+			(code "1")
+			(name "+6V")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "30")
+				(pinfunction "VIN_30")
+				(pintype "power_in")
+			)
+			(node
+				(ref "SERVO1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "VIN1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "2")
+			(name "GND")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "29")
+				(pinfunction "GND_29")
+				(pintype "power_in")
+			)
+			(node
+				(ref "A2")
+				(pin "4")
+				(pinfunction "GND_4")
+				(pintype "power_in")
+			)
+			(node
+				(ref "BUTTONGND1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "BUTTONGND1")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "BUTTONGND1")
+				(pin "3")
+				(pinfunction "Pin_3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "BUTTONGND1")
+				(pin "4")
+				(pinfunction "Pin_4_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "GY521")
+				(pin "4")
+				(pinfunction "Pin_4_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "LCD1")
+				(pin "4")
+				(pinfunction "Pin_4_4")
+				(pintype "passive")
+			)
+			(node
+				(ref "SERVO1")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "VIN1")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "3")
+			(name "Net-(A2-+5V)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "27")
+				(pinfunction "+5V_27")
+				(pintype "power_out")
+			)
+			(node
+				(ref "GY521")
+				(pin "3")
+				(pinfunction "Pin_3_3")
+				(pintype "passive")
+			)
+			(node
+				(ref "LCD1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "4")
+			(name "Net-(A2-A4)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "23")
+				(pinfunction "A4_23")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "GY521")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+			(node
+				(ref "LCD1")
+				(pin "3")
+				(pinfunction "Pin_3_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "5")
+			(name "Net-(A2-A5)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "24")
+				(pinfunction "A5_24")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "GY521")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+			(node
+				(ref "LCD1")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "6")
+			(name "Net-(A2-D3)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "6")
+				(pinfunction "D3_6")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "BUTTON1")
+				(pin "1")
+				(pinfunction "Pin_1_1")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "7")
+			(name "Net-(A2-D4)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "7")
+				(pinfunction "D4_7")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "BUTTON1")
+				(pin "2")
+				(pinfunction "Pin_2_2")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "8")
+			(name "Net-(A2-D5)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "8")
+				(pinfunction "D5_8")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "BUTTON1")
+				(pin "3")
+				(pinfunction "Pin_3_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "9")
+			(name "Net-(A2-D6)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "9")
+				(pinfunction "D6_9")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "BUTTON1")
+				(pin "4")
+				(pinfunction "Pin_4_4")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "10")
+			(name "Net-(A2-D8)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "11")
+				(pinfunction "D8_11")
+				(pintype "bidirectional")
+			)
+			(node
+				(ref "SERVO1")
+				(pin "3")
+				(pinfunction "Pin_3_3")
+				(pintype "passive")
+			)
+		)
+		(net
+			(code "11")
+			(name "unconnected-(A2-3V3-Pad17)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "17")
+				(pinfunction "3V3_17")
+				(pintype "power_out+no_connect")
+			)
+		)
+		(net
+			(code "12")
+			(name "unconnected-(A2-A0-Pad19)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "19")
+				(pinfunction "A0_19")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "13")
+			(name "unconnected-(A2-A1-Pad20)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "20")
+				(pinfunction "A1_20")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "14")
+			(name "unconnected-(A2-A2-Pad21)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "21")
+				(pinfunction "A2_21")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "15")
+			(name "unconnected-(A2-A3-Pad22)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "22")
+				(pinfunction "A3_22")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "16")
+			(name "unconnected-(A2-A6-Pad25)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "25")
+				(pinfunction "A6_25")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "17")
+			(name "unconnected-(A2-A7-Pad26)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "26")
+				(pinfunction "A7_26")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "18")
+			(name "unconnected-(A2-AREF-Pad18)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "18")
+				(pinfunction "AREF_18")
+				(pintype "input+no_connect")
+			)
+		)
+		(net
+			(code "19")
+			(name "unconnected-(A2-D0{slash}RX-Pad2)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "2")
+				(pinfunction "D0/RX_2")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "20")
+			(name "unconnected-(A2-D1{slash}TX-Pad1)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "1")
+				(pinfunction "D1/TX_1")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "21")
+			(name "unconnected-(A2-D2-Pad5)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "5")
+				(pinfunction "D2_5")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "22")
+			(name "unconnected-(A2-D7-Pad10)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "10")
+				(pinfunction "D7_10")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "23")
+			(name "unconnected-(A2-D9-Pad12)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "12")
+				(pinfunction "D9_12")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "24")
+			(name "unconnected-(A2-D10-Pad13)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "13")
+				(pinfunction "D10_13")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "25")
+			(name "unconnected-(A2-D11-Pad14)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "14")
+				(pinfunction "D11_14")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "26")
+			(name "unconnected-(A2-D12-Pad15)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "15")
+				(pinfunction "D12_15")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "27")
+			(name "unconnected-(A2-D13-Pad16)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "16")
+				(pinfunction "D13_16")
+				(pintype "bidirectional+no_connect")
+			)
+		)
+		(net
+			(code "28")
+			(name "unconnected-(A2-~{RESET}-Pad3)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "3")
+				(pinfunction "~{RESET}_3")
+				(pintype "input+no_connect")
+			)
+		)
+		(net
+			(code "29")
+			(name "unconnected-(A2-~{RESET}-Pad28)")
+			(class "Default")
+			(node
+				(ref "A2")
+				(pin "28")
+				(pinfunction "~{RESET}_28")
+				(pintype "input+no_connect")
+			)
+		)
+	)
+)

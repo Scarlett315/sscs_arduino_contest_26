@@ -1,0 +1,8 @@
+﻿Designator,Footprint,Quantity,Value,LCSC Part #
+A2,Arduino_Nano,1,Arduino_Nano_v3.x,
+J1,PhoenixContact_SPT_1.5_2-H-3.5_1x02_P3.5mm_Horizontal,1,VIN,
+J2,PinHeader_1x08_P2.54mm_Vertical,1,MPU6050,
+J3,PinHeader_1x04_P2.54mm_Vertical,1,BUTTONGND,
+J4,PinHeader_1x04_P2.54mm_Vertical,1,BUTTON,
+J5,PinHeader_1x04_P2.54mm_Vertical,1,LCD,
+SERVO1,PinHeader_1x03_P2.54mm_Vertical,1,Conn_01x04,
